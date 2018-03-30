@@ -21,7 +21,7 @@ async def on_message(message):
     with open('users.json', 'r') as f:
         users = json.load(f)
 
-    if message.content.lower().startswith('!home'): #or message.content.lower().startswith('home')
+    if message.content.lower().startswith('!home'):
         check_new_user(message.author.id, users)
         home_coords = message.content[6:]
         if '37' not in home_coords and '-122' not in home_coords:
@@ -31,7 +31,7 @@ async def on_message(message):
         users[message.author.id]['home'] = home_coords
         await update_users(users, message.channel, 'Successfully added home location.')
 
-    if message.content.lower().startswith('!filter'): #or message.content.lower().startswith('filter')
+    if message.content.lower().startswith('!filter'):
         if message.author.id in users:
             with open('pokemonnames.json', 'r') as f:
                 mon_names = json.load(f)
@@ -55,7 +55,7 @@ async def on_message(message):
         else:
             await client.send_message(message.channel, 'You have not entered a home location. Please do that first.')
 
-    if message.content.lower().startswith('!radius'): # or message.content.lower().startswith('radius')
+    if message.content.lower().startswith('!radius'):
         if message.author.id in users:
             radius = message.content[8:]
             if check_int(radius):
@@ -110,7 +110,7 @@ async def on_message(message):
 
 
 async def build_embed(user, distance_result, title, title_url, desc, thumbnail_url, image_url):
-    # print(distance_result)
+    """Builds the embed message to be sent to the user"""
     distance = distance_result['rows'][0]['elements'][0]['distance']['text']
     try:
         duration_in_traffic = distance_result['rows'][0]['elements'][0]['duration_in_traffic']['text']
@@ -126,20 +126,18 @@ async def build_embed(user, distance_result, title, title_url, desc, thumbnail_u
         print('blocked by {}'.format(user))
 
 
-# checks to see if the user is already in the list of users
-# takes user_id and the user list
-# if the user is not in the user list, adds them to the user list
 def check_new_user(user_id, users):
+    """Checks if the user is already in the list of users
+    If the user is not in the user list, adds them to the user list
+    """
     if user_id not in users:
         users[user_id] = {"home": "", "default_iv": 80, "iv_filters": {}, "radius": "100"}
         with open('users.json', 'w') as fp:
             json.dump(users, fp, indent=2)
 
 
-# adds the name of the pokemon and the timer to the google maps link
-# takes url, the previous url scraped from the discord embed, mon, the name of the pokemon, and time, the despawn timer
-# returns the new url in the correct format
 def better_gmaps_url(url, mon, time):
+    """Adds the name of the pokemon and the timer to the google maps link"""
     time = time.split()
     new_url = url[:30] + mon.capitalize() + '%20' + time[0] + '%20' + time[1] + '%20' + time[2] + '%20' + time[3] + \
               '%40' + url[30:]
@@ -147,6 +145,7 @@ def better_gmaps_url(url, mon, time):
 
 
 async def update_users(users, channel, message):
+    """Updates the user list"""
     try:
         with open('users.json', 'w') as fp:
             json.dump(users, fp, indent=2)
@@ -156,6 +155,7 @@ async def update_users(users, channel, message):
 
 
 def check_int(s):
+    """Checks if s is an int"""
     try:
         int(s)
         return True
