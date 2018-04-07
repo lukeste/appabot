@@ -1,0 +1,77 @@
+{
+  "user_id_0": {
+    "home": "lat,lng",
+    "default_iv": 99,
+    "iv_filters": {
+      "machop": 89,
+      "feebas": -1,
+      "ninetales": 101,
+      "unown": -1,
+      "dragonite": -1,
+      "bagon": -1,
+      "dratini": 99,
+      "spheal": 101,
+      "gastly": 94,
+      "machoke": 74
+    },
+    "radius": "100"
+  },
+  "user_id_1": {
+    "home": "lat,lng",
+    "default_iv": 99,
+    "iv_filters": {
+      "tyranitar": 0,
+      "unown": 0,
+      "golem": 92,
+      "beldum": 95,
+      "wailord": 95,
+      "ralts": 97,
+      "pupitar": 92,
+      "bagon": 95,
+      "salamance": 89,
+      "larvitar": 95,
+      "dratini": 95,
+      "trapinch": 97,
+      "feebas": 97,
+      "seviper": 99,
+      "lotad": 99,
+      "kirlia": 95,
+      "shelgon": 95,
+      "blissey": -1,
+      "dragonair": 95,
+      "graveler": 97,
+      "dragonite": 89,
+      "vigoroth": 95,
+      "chansey": 89,
+      "machamp": 95,
+      "metang": 95,
+      "metagross": 89,
+      "carvanha": 99,
+      "lapras": 89,
+      "vibrava": 95
+    },
+    "radius": "35"
+  },
+  "user_id_2": {
+    "home": "lat,lng",
+    "default_iv": 99,
+    "iv_filters": {
+      "ampharos": -1,
+      "slaking": -1,
+      "stantler": -1,
+      "unown": -1,
+      "blissy": -1,
+      "gardevoir": -1,
+      "tyranitar": -1,
+      "gengar": -1,
+      "golem": -1,
+      "dragonite": -1,
+      "lapras": -1,
+      "alakazam": -1,
+      "girafarig": -1,
+      "machamp": -1,
+      "snorlax": -1
+    },
+    "radius": "15"
+  }
+}
